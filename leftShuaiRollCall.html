@@ -8,6 +8,7 @@
 	<link href="./css/style.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
 	<script type="text/javascript" src="js/awardRotate.js"></script>
+	<script type="text/javascript" src="js/name.js"></script>
 	<style>
 		*{
 			padding: 0;
@@ -92,7 +93,7 @@
 	<a name="sui"></a>
 	<div id="a">
 		<div id="box">
-			<div id="screen">一切随缘</div>
+			<div id="screen" style="font-size:42px;">一切随缘,且行且珍惜</div>
 			<button onclick="gotoRand(this)">开始</button>
 			<a href="#pan" class="do">直接干</a><a href="#pai" class="pin">拼人品</a>
 		</div>
@@ -170,7 +171,6 @@
 		</div>
 	</div>
 	<script>
-		var nameList = ["莉莉", "曹操", "孙悟空", "诸葛亮", "刘备", "周瑜", "黄盖", "关羽", "貂蝉", "孙尚香", "左慈", "马超", "司马光"];
 		var timer = null;
 		function gotoRand(obj){
 			if (obj.innerHTML == '开始') {
