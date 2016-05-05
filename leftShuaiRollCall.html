@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机点名器2.0变态加强版</title>
+	<script src="./js/jquery-1.11.0.js"></script>
+	<script src="./js/jquery.cookie.js"></script>
+	<link href="./css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="js/awardRotate.js"></script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+		}
+		#a{
+			width:100%;
+			height:930px;
+			background-size:cover;
+			background: url("./images/xm.jpg")150px 30px no-repeat;
+		}
+		#b{
+			width:100%;
+			height:945px;
+			background-color:#d2a5c0;
+		}
+		#box{
+			width:400px;
+			height:300px;
+			text-align:center;
+			position:absolute;
+			left:25%;
+			top:30%;
+			-webkit-transform:translate(-50%, -50%);
+			-moz-transform:translate(-50%, -50%);
+			transform:translate(-50%, -50%);
+			font-size:60px;
+			font-weight: bold;
+			font-family: "Adobe 楷体 Std R";
+			color: #FFFFFF;
+		}
+		#box button{
+			font-family:'Microsoft YaHei';
+			width:400px;
+			font-size:40px;
+			background: #c2d9f8;
+			border: 0;
+			color: #cb612e;
+			cursor: pointer;
+		}
+		#screen{
+			border:3px dashed #ad0b0d;
+			line-height:100px;
+			border-radius:5px;
+		}
+		.do{
+			width:100px;
+			height:200px;
+			background-color:#000;
+			color: #fff;
+			margin-top: 100px;
+			float: left;
+			border-radius:100px 0 0 100px;
+		}
+		.pin{
+			width:100px;
+			height:200px;
+			background-color: #fff;
+			color:#000;
+			margin-top: 100px;
+			float: left;
+			border-radius:0 100px 100px 0;
+		}
+		.card {
+			display: inline-block;
+			Width: 90px;
+			margin:3px 10px;
+			border: 2px solid gray;
+			Height: 122px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.cardActive {
+		}
+		h1{text-align:center;}
+	</style>
+</head>
+<body bgcolor="#ad0b0d">
+<div style="width:50px;height:560px;position:fixed;right:0px;top:200px;background:#4b10d2;font-size:30px;color: #fff">组长统计每人惩罚情况,如实上报!</div>
+<div style="width:68px;height:537px;position:fixed;left:0px;top:200px;background:url('./images/bg.jpg');font-size:35px;color: #000000;line-height:40px"><div style="margin-left:12px;margin-top:55px;width:50px;height:500px;font-family: 楷体;font-weight: bold">随机点名器2.0变态加强版</div></div>
+	<a name="sui"></a>
+	<div id="a">
+		<div id="box">
+			<div id="screen">一切随缘</div>
+			<button onclick="gotoRand(this)">开始</button>
+			<a href="#pan" class="do">直接干</a><a href="#pai" class="pin">拼人品</a>
+		</div>
+	</div>
+	<a name="pai"></a>
+	<div id="b">
+		<div id="cards" style="margin:50px auto;Width:1000px;">
+			<div>
+				<img id="img1" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img2" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img3" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img4" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img5" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img6" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img7" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img8" class="card" src='BXZQ2014/cover.jpg' />
+			</div>
+			<div>
+				<img id="img9" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img10" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img11" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img12" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img13" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img14" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img15" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img16" class="card" src='BXZQ2014/cover.jpg' />
+			</div>
+			<div>
+				<img id="img17" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img18" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img19" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img20" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img21" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img22" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img23" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img24" class="card" src='BXZQ2014/cover.jpg' />
+			</div>
+			<div>
+				<img id="img25" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img26" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img27" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img28" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img29" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img30" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img31" class="card" src='BXZQ2014/cover.jpg' />
+				<img id="img32" class="card" src='BXZQ2014/cover.jpg' />
+			</div>
+		</div>
+		<div id="myCards" style="Width:100%; text-align: center;">
+			<span style="width:100%;height:50px;float: left;background: url('./images/xg.gif') 0 -70px"></span>
+			<a href="#sui" style="background-color:#fff;color: #000;font-weight: bold;margin-right: 50px"><<< 随机点名</a>
+			<a href="#pan" style="background-color:#000;color: #fff;font-weight: bold;margin-left: 50px">惩罚转盘 >>></a>
+			<div id="myCardView"></div>
+			<div id="infoView"></div>
+		</div>
+	</div>
+	<a name="pan"></a>
+	<div id="c">
+		<a href="#sui" style="background-color:#fff;color: #000;font-weight: bold;font-size: 50px;">下一位受害者</a>
+		<img src="images/1.png" id="shan-img" style="display:none;" />
+		<img src="images/2.png" id="sorry-img" style="display:none;" />
+		<div class="banner">
+			<div class="turnplate" style="background-image:url(images/turnplate-bg.png);background-size:100% 100%;">
+				<canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas>
+				<img class="pointer" src="images/turnplate-pointer.png"/>
+			</div>
+		</div>
+
+		<div style="display:none">
+			<script type="text/javascript">
+				var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+				document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F6f798e51a1cd93937ee8293eece39b1a' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_5718743'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/stat.php%3Fid%3D5718743%26show%3Dpic2' type='text/javascript'%3E%3C/script%3E"));</script>
+		</div>
+	</div>
+	<script>
+		var nameList = ["莉莉", "曹操", "孙悟空", "诸葛亮", "刘备", "周瑜", "黄盖", "关羽", "貂蝉", "孙尚香", "左慈", "马超", "司马光"];
+		var timer = null;
+		function gotoRand(obj){
+			if (obj.innerHTML == '开始') {
+				obj.innerHTML = "暂停";
+				//开始随机
+				timer = setInterval(randName, 50);
+			} else {
+				obj.innerHTML = "开始";
+				//停止定时
+				clearInterval(timer);
+			}
+		}
+		//随机产生姓名
+		function randName(){
+			//随机取下标
+			var index = Math.floor(Math.random() * 10000000 % nameList.length);
+			//在div中写入 指定的名字
+			document.getElementById('screen').innerHTML = nameList[index];
+		}
+
+
+
+
+		var currentCard;
+		var chooseTime =2;//用户可以选择的卡片数量
+		var leftTime = 2;
+		var flag = 0;
+		var myCards;
+		$(function () {
+			//initCards();
+
+//        alert("恭喜您总共拥有" + chooseTime + "次机会抽取世界杯32强入围球队\n目前剩余次数：" + leftTime + "次.\n您可以通过点击球队卡片进行抽取！");
+
+
+			$("#cards img").mouseover(function () {
+				$(this).attr("style", "border:2px solid white");
+			}).mouseout(function () {
+				$(this).attr("style", "border:2px solid gray");
+			}).click(function () {
+				currentCard = this;
+				if (flag == chooseTime) {
+					alert("您已经选过了！");
+					return;
+				}
+				$(this).animate({ width: '0px' }, 600).delay(300).animate({ width: '90px' }, 600);
+				t = setTimeout("getRandomImg()", 1000);
+
+//            flag = flag + 1;
+				$(this).unbind();
+			});
+		});
+		function initCards() {
+			myCards = $.cookie('myCards');
+			if (typeof (myCards) == "undefined")
+				return;
+			var cards = myCards.split("|");
+			leftTime = cards.length;
+			for (var i = 0; i < cards.length; i++) {
+				$("#myCards").append(" <img id='mc'" + (new Date()).getMilliseconds() + " class='card' style='display:none;' src='" + cards[i] + "' />");
+			}
+		}
+
+		//动态远程获取随机球队卡片地址或者数据
+		function getRandomImg() {
+			var a = Math.round(Math.random() * 1000 % 32);
+			$(currentCard).attr("src", "BXZQ2014/" + a + ".jpg");
+			//隐藏图片
+			//添加图片
+			$("#myCardView").append(" <img id='mc'" + (new Date()).getMilliseconds() + " class='card' style='display:none;width:160px;height:210px;' src='" + $(currentCard).attr("src") + "' />");
+			$("#myCardView img").show(1000);
+		}
+
+
+		var turnplate={
+			restaraunts:[],				//大转盘奖品名称
+			colors:[],					//大转盘奖品区块对应背景颜色
+			outsideRadius:192,			//大转盘外圆的半径
+			textRadius:155,				//大转盘奖品位置距离圆心的距离
+			insideRadius:68,			//大转盘内圆的半径
+			startAngle:0,				//开始角度
+			bRotate:false				//false:停止;ture:旋转
+		};
+
+		$(document).ready(function(){
+			//动态添加大转盘的奖品与奖品区域背景颜色
+			turnplate.restaraunts = ["单人一遍", "单人两遍", "单人四遍", "全组一遍", "全组四遍", "全组两遍", "单人二遍其他组员一遍", "惩罚豁免","再转一次", "单人四遍其他组员2遍"];
+			turnplate.colors = ["#FFF4D6", "#FFFFFF", "#FFF4D6", "#FFFFFF","#FFF4D6", "#FFFFFF", "#FFF4D6", "#FFFFFF","#FFF4D6", "#FFFFFF"];
+
+
+			var rotateTimeOut = function (){
+				$('#wheelcanvas').rotate({
+					angle:0,
+					animateTo:2160,
+					duration:8000,
+					callback:function (){
+						alert('网络超时，请检查您的网络设置！');
+					}
+				});
+			};
+
+			//旋转转盘 item:奖品位置; txt：提示语;
+			var rotateFn = function (item, txt){
+				var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length*2));
+				if(angles<270){
+					angles = 270 - angles;
+				}else{
+					angles = 360 - angles + 270;
+				}
+				$('#wheelcanvas').stopRotate();
+				$('#wheelcanvas').rotate({
+					angle:0,
+					animateTo:angles+1800,
+					duration:8000,
+					callback:function (){
+//				alert(txt);
+						turnplate.bRotate = !turnplate.bRotate;
+					}
+				});
+			};
+
+			$('.pointer').click(function (){
+				if(turnplate.bRotate)return;
+				turnplate.bRotate = !turnplate.bRotate;
+				//获取随机数(奖品个数范围内)
+				var item = rnd(1,turnplate.restaraunts.length);
+//		alert(item);
+				//奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
+				rotateFn(item, turnplate.restaraunts[item-1]);
+				/* switch (item) {
+				 case 1:
+				 rotateFn(252, turnplate.restaraunts[0]);
+				 break;
+				 case 2:
+				 rotateFn(216, turnplate.restaraunts[1]);
+				 break;
+				 case 3:
+				 rotateFn(180, turnplate.restaraunts[2]);
+				 break;
+				 case 4:
+				 rotateFn(144, turnplate.restaraunts[3]);
+				 break;
+				 case 5:
+				 rotateFn(108, turnplate.restaraunts[4]);
+				 break;
+				 case 6:
+				 rotateFn(72, turnplate.restaraunts[5]);
+				 break;
+				 case 7:
+				 rotateFn(36, turnplate.restaraunts[6]);
+				 break;
+				 case 8:
+				 rotateFn(360, turnplate.restaraunts[7]);
+				 break;
+				 case 9:
+				 rotateFn(324, turnplate.restaraunts[8]);
+				 break;
+				 case 10:
+				 rotateFn(288, turnplate.restaraunts[9]);
+				 break;
+				 } */
+				console.log(item);
+			});
+		});
+
+		function rnd(n, m){
+			var random = Math.floor(Math.random()*(m-n+1)+n);
+			return random;
+
+		}
+
+
+		//页面所有元素加载完毕后执行drawRouletteWheel()方法对转盘进行渲染
+		window.onload=function(){
+			drawRouletteWheel();
+		};
+
+		function drawRouletteWheel() {
+			var canvas = document.getElementById("wheelcanvas");
+			if (canvas.getContext) {
+				//根据奖品个数计算圆周角度
+				var arc = Math.PI / (turnplate.restaraunts.length/2);
+				var ctx = canvas.getContext("2d");
+				//在给定矩形内清空一个矩形
+				ctx.clearRect(0,0,422,422);
+				//strokeStyle 属性设置或返回用于笔触的颜色、渐变或模式
+				ctx.strokeStyle = "#FFBE04";
+				//font 属性设置或返回画布上文本内容的当前字体属性
+				ctx.font = '16px Microsoft YaHei';
+				for(var i = 0; i < turnplate.restaraunts.length; i++) {
+					var angle = turnplate.startAngle + i * arc;
+					ctx.fillStyle = turnplate.colors[i];
+					ctx.beginPath();
+					//arc(x,y,r,起始角,结束角,绘制方向) 方法创建弧/曲线（用于创建圆或部分圆）
+					ctx.arc(211, 211, turnplate.outsideRadius, angle, angle + arc, false);
+					ctx.arc(211, 211, turnplate.insideRadius, angle + arc, angle, true);
+					ctx.stroke();
+					ctx.fill();
+					//锁画布(为了保存之前的画布状态)
+					ctx.save();
+
+					//----绘制奖品开始----
+					ctx.fillStyle = "#E5302F";
+					var text = turnplate.restaraunts[i];
+					var line_height = 17;
+					//translate方法重新映射画布上的 (0,0) 位置
+					ctx.translate(211 + Math.cos(angle + arc / 2) * turnplate.textRadius, 211 + Math.sin(angle + arc / 2) * turnplate.textRadius);
+
+					//rotate方法旋转当前的绘图
+					ctx.rotate(angle + arc / 2 + Math.PI / 2);
+
+					/** 下面代码根据奖品类型、奖品名称长度渲染不同效果，如字体、颜色、图片效果。(具体根据实际情况改变) **/
+					if(text.indexOf("M")>0){//流量包
+						var texts = text.split("M");
+						for(var j = 0; j<texts.length; j++){
+							ctx.font = j == 0?'bold 20px Microsoft YaHei':'16px Microsoft YaHei';
+							if(j == 0){
+								ctx.fillText(texts[j]+"M", -ctx.measureText(texts[j]+"M").width / 2, j * line_height);
+							}else{
+								ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+							}
+						}
+					}else if(text.indexOf("M") == -1 && text.length>6){//奖品名称长度超过一定范围
+						text = text.substring(0,6)+"||"+text.substring(6);
+						var texts = text.split("||");
+						for(var j = 0; j<texts.length; j++){
+							ctx.fillText(texts[j], -ctx.measureText(texts[j]).width / 2, j * line_height);
+						}
+					}else{
+						//在画布上绘制填色的文本。文本的默认颜色是黑色
+						//measureText()方法返回包含一个对象，该对象包含以像素计的指定字体宽度
+						ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
+					}
+
+					//添加对应图标
+					if(text.indexOf("豁免")>0){
+						var img= document.getElementById("shan-img");
+						img.onload=function(){
+							ctx.drawImage(img,-15,10);
+						};
+						ctx.drawImage(img,-15,10);
+					}else if(text.indexOf("四遍")>=0){
+						var img= document.getElementById("sorry-img");
+						img.onload=function(){
+							ctx.drawImage(img,-15,10);
+						};
+						ctx.drawImage(img,-15,10);
+					}
+					//把当前画布返回（调整）到上一个save()状态之前
+					ctx.restore();
+					//----绘制奖品结束----
+				}
+			}
+		}
+
+	</script>
+</body>
+
+</html>
